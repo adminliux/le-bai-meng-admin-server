@@ -50,7 +50,7 @@
             <a class="btn btn-success" onclick="initSortIndex()"><i class="Hui-iconfont">&#xe665;</i> 初始化排序索引</a>
             <label>
                 <span>课程班级成员导入:</span>
-                <input onchange="onFileClass(this)"></label>
+                <input type="file" onchange="onFileClass(this)"></label>
             <br/>
             </from>
 
