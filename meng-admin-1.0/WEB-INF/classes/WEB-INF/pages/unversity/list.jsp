@@ -48,6 +48,9 @@
             <a class="btn btn-success" onclick="findUser()"><i class="Hui-iconfont">&#xe665;</i> 查询</a>
             <a class="btn btn-success" onclick="regist()"><i class="Hui-iconfont">&#xe665;</i> 创建课程</a>
             <a class="btn btn-success" onclick="initSortIndex()"><i class="Hui-iconfont">&#xe665;</i> 初始化排序索引</a>
+            <label>
+                <span>课程班级成员导入:</span>
+                <input onchange="onFileClass(this)"></label>
             <br/>
             </from>
 
@@ -210,7 +213,7 @@
             var pageNum = '${pageNum}';
 
             function findClassify() {
-                Project.ajax("/global/classify/list", null, null, true).ajaxOK(function (data) {
+                Project.ajax("/global/classify/list").ajaxOK(function (data) {
                     $("#classifyList").html(template("f4", data));//作用到表格
                     findUser();
                 });
@@ -233,7 +236,7 @@
                 Project.ajax("/live/course/admin/qury", {
                     userId: userId, id: id, unId: unId, roomTitle: roomTitle, pageNow: pageNow,
                     classifyId: classifyId
-                }, null, true).ajaxOK(function (data) {
+                }).ajaxOK(function (data) {
                     $('html').loading('stop');
                     $("#goodList").html(template("f1", data));//作用到表格
                     $("#page").html(template("f2", data));//作用到分页
@@ -243,10 +246,10 @@
                     // 面调用图片悬浮放大方法
                     $("#table").tableDnD({
                         //滚动的速度
-                        scrollAmount:10,
-                        onDragClass:'highlight',
+                        scrollAmount: 10,
+                        onDragClass: 'highlight',
                         //当拖动排序完成后
-                        onDrop: function(table,row) {
+                        onDrop: function (table, row) {
                             var $row = $(row);
                             var $tow = $row.prev();
                             if ($tow.length === 0) $tow = $row.next();
@@ -282,7 +285,7 @@
             function down(id) {
                 var unId = "${unId}";
                 layer.confirm('确认要把该课程删除吗？', function (index) {
-                    Project.ajax("/live/delete/course", {id: id, unId: unId}, null, true).ajaxOK(function (data) {
+                    Project.ajax("/live/delete/course", {id: id, unId: unId}).ajaxOK(function (data) {
                         layer.msg('成功!', {icon: 6, time: 1000});
                         findUser();//刷新
                     });
@@ -303,7 +306,7 @@
 
             function userRecommend(id, flag) {
                 layer.confirm('确认推荐/取消推荐此课程吗？', function (index) {
-                    Project.ajax("/live/user/recommand", {id: id, flag: flag}, null, true).ajaxOK(function (data) {
+                    Project.ajax("/live/user/recommand", {id: id, flag: flag}).ajaxOK(function (data) {
                         layer.msg('成功!', {icon: 6, time: 1000});
                         findUser();//刷新
                     });
@@ -314,7 +317,7 @@
             function member_stop(obj, id) {//id为用户的id，obj没用到
                 layer.confirm('确认要把该视频加入待审核状态吗？', function (index) {
                     var status = 'AUDIT';//启用用户
-                    Project.ajax("/video/update", {id: id, status: status}, null, true).ajaxOK(function (data) {
+                    Project.ajax("/video/update", {id: id, status: status}).ajaxOK(function (data) {
                         layer.msg('成功!', {icon: 6, time: 1000});
                         findUser();//刷新
                     });
@@ -334,6 +337,15 @@
                         findUser();//刷新
                     });
                 });
+            }
+
+
+            function onFileClass(fileEl) {
+                var file = fileEl.files[0];
+                var df = new FormData();
+                df.append("file", file);
+                Project.ajaxUploadFileUrl("/course/introduction/user/register/curriculum", df).ajaxOK(function () {
+                }, true, true);
             }
 
             /**
