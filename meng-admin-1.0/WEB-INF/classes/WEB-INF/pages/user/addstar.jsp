@@ -66,7 +66,7 @@
          return false;
      }
 
-     Project.ajax("/star/order/admin/insert",{userId:userId},null,true).ajaxOK(function(data) {
+     Project.ajax("/star/order/admin/insert",{userId:userId}).ajaxOK(function(data) {
              layer.msg('成功!',{icon: 6,time:1000});
              window.close();
              parent.findUser();//刷新

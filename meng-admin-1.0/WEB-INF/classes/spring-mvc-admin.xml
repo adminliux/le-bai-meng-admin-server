@@ -9,25 +9,11 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-    <!-- 静态资源文件，不会被Spring MVC拦截 -->
-    <!--suppress SpringXmlModelInspection -->
-    <mvc:resources location="/resources/" mapping="/resources/**"/>
 
     <context:component-scan base-package="com.daolezuche.controller"/>
 
     <!-- 对于不需要的拦截有服务器默认处理 -->
     <mvc:default-servlet-handler/>
-
-    <!-- 视图解析器 -->
-    <bean id="internalResourceViewResolver"
-          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass"
-                  value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp"/>
-        <property name="contentType" value="text/html;charset=UTF-8"/>
-        <property name="order" value="0"/>
-    </bean>
 
     <!--权限地址初始化-->
     <bean id="accessInterfaceInspectAdmin" class="com.rpframework.module.common.bottom.listener.AccessInterfaceInspect">

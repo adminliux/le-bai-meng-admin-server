@@ -87,7 +87,7 @@
             var fromList=$("#From").formSerialize();
             var p=$.extend({pageNum: pageNum},{status: status},fromList);
 
-            Project.ajax("/feedback/list",null,null,true).ajaxOK(function(data) {
+            Project.ajax("/feedback/list",null).ajaxOK(function(data) {
                 console.log(data.data)
                 $("#goodList").html(template("f1",data));//作用到表格
                 $("#page").html(template("f2",data));//作用到分页

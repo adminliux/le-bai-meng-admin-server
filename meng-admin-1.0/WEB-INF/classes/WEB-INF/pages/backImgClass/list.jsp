@@ -113,7 +113,7 @@
     function findUser(pageNum){
         var fromList=$("#From").formSerialize();
         var p=$.extend({pageNum: pageNum},fromList);
-		Project.ajax("/video/back/img/class/page",p,null,true).ajaxOK(function(data) {
+		Project.ajax("/video/back/img/class/page",p).ajaxOK(function(data) {
 			$("#goodList").html(template("f1",data));//作用到表格
 			$("#page").html(template("f2",data));//作用到分页
 			$("#total").html(data.data.total);//作用到统计total
@@ -125,7 +125,7 @@
 
     function deleteMsg(id){
         if (confirm("你确定删除吗？")) {
-            Project.ajax("/video/back/img/class/delete",{id:id},null,true).ajaxOK(function(data) {
+            Project.ajax("/video/back/img/class/delete",{id:id}).ajaxOK(function(data) {
                 findUser();
             },true);
         }

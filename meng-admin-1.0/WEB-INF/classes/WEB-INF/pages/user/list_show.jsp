@@ -75,7 +75,7 @@
     findUserData();
     function findUserData(){
         var id='${id}';
-        Project.ajax("/user/find/info",{id:id},null,true).ajaxOK(function(data){
+        Project.ajax("/user/find/info",{id:id}).ajaxOK(function(data){
             $("#jobField").html(data.data.jobField);
             $("#jobPosition").html(data.data.jobPosition);
             $("#jobCity").html(data.data.jobCity);

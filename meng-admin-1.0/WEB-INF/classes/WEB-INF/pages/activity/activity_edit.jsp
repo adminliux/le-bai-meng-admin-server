@@ -299,7 +299,7 @@
 
                 var data = {"code":code,"acivityId": id,"cid":cid,"name": name};
                 alert(JSON.stringify(data));
-                Project.ajaxUploadVideoFile('/web/regist/activity/pay', data, null, true).ajaxOK(function (data) {
+                Project.ajaxUploadVideoFile('/web/regist/activity/pay', data).ajaxOK(function (data) {
                     window.location.href =  REDIRECT_URL +"?id="+id
                 }, true);
 

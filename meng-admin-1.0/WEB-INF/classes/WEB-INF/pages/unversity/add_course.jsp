@@ -181,7 +181,7 @@
 <script type="text/javascript">
     findClassify();
     function findClassify() {
-        Project.ajax("/global/classify/list",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/global/classify/list",null).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到下拉列表
         });
     }

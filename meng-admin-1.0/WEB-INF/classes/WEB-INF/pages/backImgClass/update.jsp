@@ -115,7 +115,7 @@
     findUser();
     function findUser(){
         var id="${id}";
-        Project.ajax("/video/back/img/class/find",{id:id},null,true).ajaxOK(function(data) {
+        Project.ajax("/video/back/img/class/find",{id:id}).ajaxOK(function(data) {
             $("input[name=name]").val(data.data.name);
         });
     }
@@ -126,7 +126,7 @@
     function release(){
         var id="${id}";
         var name = $("input[name=name]").val();
-        Project.ajax("/video/back/img/class/update",{name:name,id:id},null,true).ajaxOK(function(data){
+        Project.ajax("/video/back/img/class/update",{name:name,id:id}).ajaxOK(function(data){
 
         },true);
     }

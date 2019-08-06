@@ -95,7 +95,7 @@
     var phoneReg = /^1(3|4|5|7|8)\d{9}$/
     findCollage();
     function findClassify(id) {
-        Project.ajax("/global/classify/list",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/global/classify/list",null).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到表格
             $("#classifyList option[value='"+id+"']").attr("selected",true);
         });
@@ -103,7 +103,7 @@
 
     function findCollage() {
         var id="${id}";
-        Project.ajax("/web/regist/query/byid",{id:id},null,true).ajaxOK(function(data) {
+        Project.ajax("/web/regist/query/byid",{id:id}).ajaxOK(function(data) {
             $("#classifyList2").html(template("f5",data));//作用到表格
             findClassify(data.data.classifyId);
         });

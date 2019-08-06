@@ -123,7 +123,7 @@
 <script type="text/javascript">
     findVideo();
     function findClassify(id) {
-        Project.ajax("/global/classify/list",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/global/classify/list",null).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到表格
             $("#classifyList option[value='"+id+"']").attr("selected",true);
         });
@@ -131,7 +131,7 @@
 
     function findVideo() {
         var id="${id}";
-        Project.ajax("/video/select/byid",{id:id},null,true).ajaxOK(function(data) {
+        Project.ajax("/video/select/byid",{id:id}).ajaxOK(function(data) {
             $("#classifyList2").html(template("f5",data));//作用到表格
             findClassify(data.data.classifyId);
         });
@@ -158,7 +158,7 @@
     function preview(file) {
         var fd = new FormData();
         fd.append("files",file.files[0]);
-        Project.ajaxUploadVideoFile('/video/upload/tenxun', fd, null, true).ajaxOK(function (data) {
+        Project.ajaxUploadVideoFile('/video/upload/tenxun', fd).ajaxOK(function (data) {
             var src = data['data'];
             $("#zhaopian").attr("src",src);
             $("input[name=previewImg]").val(src);

@@ -166,7 +166,7 @@
 
     function findClassify(cc) {
         var name="NOTICE_CLASS";
-        Project.ajax("/global/config/find",{name:name},null,true).ajaxOK(function(data) {
+        Project.ajax("/global/config/find",{name:name}).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到表格
             $("#classifyList option[value='"+cc+"']").attr("selected",true);
         });
@@ -175,7 +175,7 @@
     findUser();
     function findUser(){
         var id="${id}";
-        Project.ajax("/notice/qcb/find/byid",{id:id},null,true).ajaxOK(function(data) {
+        Project.ajax("/notice/qcb/find/byid",{id:id}).ajaxOK(function(data) {
             $("#classifyList1").html(template("f5",data));//作用到表格
             findClassify(data.data.classify);
         });
@@ -216,7 +216,7 @@
         var filename = selectedFile.name;
 
 
-        Project.ajaxUploadVideoFile('/video/upload/tenxun', fd, null, true).ajaxOK(function (data) {
+        Project.ajaxUploadVideoFile('/video/upload/tenxun', fd).ajaxOK(function (data) {
             var src = data['data'];
             $("#zhaopian").attr("src",src);
             $("input[name=bannerImages]").val(src);

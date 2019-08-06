@@ -128,7 +128,7 @@
 <script type="text/javascript">
     findClassify();
     function findClassify() {
-        Project.ajax("/video/back/img/class/list",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/video/back/img/class/list",null).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到表格
             findUser();
         });
@@ -136,7 +136,7 @@
     function findUser(pageNum){
         var fromList=$("#From").formSerialize();
         var p=$.extend({pageNum: pageNum},fromList);
-        Project.ajax("/video/back/img/page",p,null,true).ajaxOK(function(data) {
+        Project.ajax("/video/back/img/page",p).ajaxOK(function(data) {
             $("#goodList").html(template("f1",data));//作用到表格
             $("#page").html(template("f2",data));//作用到分页
             $("#total").html(data.data.total);//作用到统计total
@@ -148,7 +148,7 @@
 
     function deleteMsg(id){
         if (confirm("你确定删除吗？")) {
-            Project.ajax("/video/back/img/delete",{id:id},null,true).ajaxOK(function(data) {
+            Project.ajax("/video/back/img/delete",{id:id}).ajaxOK(function(data) {
                 findUser();
             },true);
         }

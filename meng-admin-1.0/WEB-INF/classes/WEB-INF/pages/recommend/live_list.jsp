@@ -130,7 +130,7 @@
             var status="AUDITED";
             var id='${id}';
             var p=$.extend({pageNum: pageNum},{status: status},{id: id},fromList);
-            Project.ajax("/live/course/select/byid",p,null,true).ajaxOK(function(data) {
+            Project.ajax("/live/course/select/byid",p).ajaxOK(function(data) {
                 $("#goodList").html(template("f1",data));//作用到表格
                 $("#page").html(template("f2",data));//作用到分页
                 $("#total").html(data.data.total);//作用到统计total
@@ -151,7 +151,7 @@
         function member_stop(obj,id){//id为用户的id，obj没用到
             layer.confirm('确认要把该视频加入待审核状态吗？',function(index){
                 var status ='AUDIT';//启用用户
-                Project.ajax("/video/update",{id:id,status:status},null,true).ajaxOK(function(data) {
+                Project.ajax("/video/update",{id:id,status:status}).ajaxOK(function(data) {
                     layer.msg('成功!',{icon: 6,time:1000});
                     findUser();//刷新
                 });

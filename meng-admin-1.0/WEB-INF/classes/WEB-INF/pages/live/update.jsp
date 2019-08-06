@@ -232,7 +232,7 @@
 
     findVideo();
     function findClassify(id) {
-        Project.ajax("/global/classify/list",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/global/classify/list",null).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到表格
             $("#classifyList option[value='"+id+"']").attr("selected",true);
         });
@@ -240,7 +240,7 @@
 
     function findVideo() {
         var id="${id}";
-        Project.ajax("/live/course/live/detail",{id:id},null,true).ajaxOK(function(data) {
+        Project.ajax("/live/course/live/detail",{id:id}).ajaxOK(function(data) {
             $("#classifyList2").html(template("f5",data));//作用到表格
             findClassify(data.data.classifyId);
         });
@@ -273,7 +273,7 @@
         }
         var p=$.extend({id:id},{userId: userId},{previewImg: previewImg},{name: name},
             {classifyId: classifyId},{overTime:overTime},{beginTime:beginTime});
-        Project.ajax("/live/course/update",p,null,true).ajaxOK(function(data) {
+        Project.ajax("/live/course/update",p).ajaxOK(function(data) {
         },true);
     }
 

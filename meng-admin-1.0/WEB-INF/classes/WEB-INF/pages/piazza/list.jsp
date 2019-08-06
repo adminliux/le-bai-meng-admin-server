@@ -139,7 +139,7 @@
             }
             function toTop(id) {
                 layer.confirm('确认要置顶吗？', function (index){
-                    Project.ajax("/piazza/top",{id:id},null,true).ajaxOK(function(data) {
+                    Project.ajax("/piazza/top",{id:id}).ajaxOK(function(data) {
                         findUser();
                         layer.msg('成功!', {icon: 6, time: 1000});
                     },true);
@@ -199,14 +199,14 @@
             }
 
             function updateSort(sort, id) {
-                Project.ajax("/video/update", {id: id, sort: sort}, null, true).ajaxOK(function (data) {
+                Project.ajax("/video/update", {id: id, sort: sort}).ajaxOK(function (data) {
                     layer.msg('成功!', {icon: 6, time: 1000});
                     findUser();//刷新
                 });
             }
 
             function updatePraiseSum(praiseSum, id) {
-                Project.ajax("/video/update", {id: id, praiseSum: praiseSum}, null, true).ajaxOK(function (data) {
+                Project.ajax("/video/update", {id: id, praiseSum: praiseSum}).ajaxOK(function (data) {
                     layer.msg('成功!', {icon: 6, time: 1000});
                     findUser();//刷新
                 });

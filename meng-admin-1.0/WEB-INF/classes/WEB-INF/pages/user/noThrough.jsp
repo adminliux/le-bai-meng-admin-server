@@ -99,7 +99,7 @@
     findUser()
     function findUser() {
         var id="${id}";
-        Project.ajax("/user/find/user/info",{id:id},null,true).ajaxOK(function(data) {
+        Project.ajax("/user/find/user/info",{id:id}).ajaxOK(function(data) {
             $("#classifyList2").html(template("f5",data));//作用到表格
             findClassify(data.data.classifyId);
         });
@@ -127,7 +127,7 @@
              return false ;
         }
 
-        Project.ajax("/user/update/user",{id:id,nickname:nickname,headPortrait:headPortrait,MaritalStatus:MaritalStatus,balance:balance,phoneNumber:phoneNumber,userType:userType},null,true).ajaxOK(function(data) {
+        Project.ajax("/user/update/user",{id:id,nickname:nickname,headPortrait:headPortrait,MaritalStatus:MaritalStatus,balance:balance,phoneNumber:phoneNumber,userType:userType}).ajaxOK(function(data) {
         },true);
     }
 

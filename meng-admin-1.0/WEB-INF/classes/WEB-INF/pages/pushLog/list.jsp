@@ -131,7 +131,7 @@
             function findUser(pageNum){
                 var fromList=$("#From").formSerialize();
                 var p=$.extend({pageNum: pageNum},fromList);
-                Project.ajax("/push/log/list",p,null,true).ajaxOK(function(data) {
+                Project.ajax("/push/log/list",p).ajaxOK(function(data) {
                     $("#goodList").html(template("f1",data));//作用到表格
                     $("#page").html(template("f2",data));//作用到分页
                     $("#total").html(data.data.total);//作用到统计total
@@ -141,7 +141,7 @@
 
 
             function deleteP(id) {//id为用户的id，obj没用到
-                Project.ajax("/push/log/del/push", {id: id}, null, true).ajaxOK(function (data) {
+                Project.ajax("/push/log/del/push", {id: id}).ajaxOK(function (data) {
                     layer.msg('成功!', {icon: 6, time: 1000});
                     findUser();//刷新
                 });
@@ -158,7 +158,7 @@
                 window.location.href='${path}/page/push/log/push';
             }
             function  push(id) {
-                Project.ajax("/push/log/push/msg", {id: id}, null, true).ajaxOK(function (data) {
+                Project.ajax("/push/log/push/msg", {id: id}).ajaxOK(function (data) {
                     layer.msg('成功!', {icon: 6, time: 1000});
                     findUser();//刷新
                 });

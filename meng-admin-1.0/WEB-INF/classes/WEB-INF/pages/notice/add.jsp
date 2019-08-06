@@ -148,7 +148,7 @@
     findClassify();
     function findClassify() {
         var name="NOTICE_CLASS";
-        Project.ajax("/global/config/find",{name:name},null,true).ajaxOK(function(data) {
+        Project.ajax("/global/config/find",{name:name}).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到表格
         });
     }

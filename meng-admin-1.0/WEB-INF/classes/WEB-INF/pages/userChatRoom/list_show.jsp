@@ -59,7 +59,7 @@
     findUserData();
     function findUserData(){
         var id='${id}';
-        Project.ajax("/user/find/user/info",{id:id},null,true).ajaxOK(function(data){
+        Project.ajax("/user/find/user/info",{id:id}).ajaxOK(function(data){
             $("#accountId").html(data.data.accountId);
             $("#nickname").html(data.data.nickname);
             $("#phoneNumber").html(data.data.phoneNumber);

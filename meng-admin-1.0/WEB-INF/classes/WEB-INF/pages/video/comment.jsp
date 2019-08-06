@@ -160,7 +160,7 @@
             function findUser(pageNum) {
                 var fromList = $("#From").formSerialize();
                 var p = $.extend({pageNum: pageNum}, fromList);
-                Project.ajax("/video/comment/admin/page", p, null, true).ajaxOK(function (data) {
+                Project.ajax("/video/comment/admin/page", p).ajaxOK(function (data) {
                     $("#goodsList").html(template("f1", data));
                     $("#page").html(template("f2", data));//作用到分页
                     updateType();
@@ -169,14 +169,14 @@
 
             function updateType() {
                 var type = "VCOMMENT";
-                Project.ajax("/record/view/already", {type: type}, null, true).ajaxOK(function (data) {
+                Project.ajax("/record/view/already", {type: type}).ajaxOK(function (data) {
 
                 });
             }
 
             function member_stop(obj, id) {//id为用户的id，obj没用到
                 layer.confirm('确认要删除该评论吗？', function (index) {
-                    Project.ajax("/video/comment/delete", {id: id}, null, true).ajaxOK(function (data) {
+                    Project.ajax("/video/comment/delete", {id: id}).ajaxOK(function (data) {
                         layer.msg('成功!', {icon: 6, time: 1000});
                         findUser();//刷新
                     });
@@ -185,7 +185,7 @@
 
             function member_yes(obj, id) {//id为用户的id，obj没用到
                 var status = 'AUDITED';
-                Project.ajax("/video/comment/update", {id: id, status: status}, null, true).ajaxOK(function (data) {
+                Project.ajax("/video/comment/update", {id: id, status: status}).ajaxOK(function (data) {
                     layer.msg('成功!', {icon: 6, time: 1000});
                     findUser();//刷新
                 });

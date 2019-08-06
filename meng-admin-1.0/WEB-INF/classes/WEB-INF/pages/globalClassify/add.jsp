@@ -118,7 +118,7 @@
             alert("请输入类名");
             return false;
         }
-        Project.ajax("/global/classify/add",{name:name},null,true).ajaxOK(function(data) {
+        Project.ajax("/global/classify/add",{name:name}).ajaxOK(function(data) {
 
         },true);
     }

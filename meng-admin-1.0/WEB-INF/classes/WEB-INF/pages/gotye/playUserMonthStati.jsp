@@ -85,7 +85,7 @@
 <script type="text/javascript">
     function findUser(){
         var fromList=$("#From").formSerialize();
-		Project.ajax("/gotye/get/play/user/month/stati",fromList,null,true).ajaxOK(function(data) {
+		Project.ajax("/gotye/get/play/user/month/stati",fromList).ajaxOK(function(data) {
 			$("#goodList").html(template("f1",data));//作用到表格
 			biggerr();//初始页
 			// 面调用图片悬浮放大方法

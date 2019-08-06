@@ -102,7 +102,7 @@
     findUser();
     function findUser(){
         var name="NOTICE_CLASS_USER_USE";
-		Project.ajax("/global/config/find",{name:name},null,true).ajaxOK(function(data) {
+		Project.ajax("/global/config/find",{name:name}).ajaxOK(function(data) {
 			$("#goodList").html(template("f1",data));//作用到表格
 			$("#page").html(template("f2",data));//作用到分页
 			$("#total").html(data.data.total);//作用到统计total
@@ -115,7 +115,7 @@
     function deleteMsg(value2){//id为用户的id，obj没用到
         layer.confirm('确认要删除吗？',function(index){
             var name="NOTICE_CLASS_USER_USE";
-            Project.ajax("/global/config/delete/value",{name:name,value2:value2},null,true).ajaxOK(function(data) {
+            Project.ajax("/global/config/delete/value",{name:name,value2:value2}).ajaxOK(function(data) {
                     layer.msg('成功!',{icon: 6,time:1000});
                     findUser();//刷新
             });
@@ -125,7 +125,7 @@
     function add(){//id为用户的id，obj没用到
 			var value2=$("#value").val();
             var name="NOTICE_CLASS_USER_USE";
-            Project.ajax("/global/config/add/value",{name:name,value2:value2},null,true).ajaxOK(function(data) {
+            Project.ajax("/global/config/add/value",{name:name,value2:value2}).ajaxOK(function(data) {
                 layer.msg('成功!',{icon: 6,time:1000});
                 findUser();//刷新
             });

@@ -71,7 +71,7 @@
         var courseId=$("input[name=courseId]").val();
         var unId=$("input[name=unId]").val();
         var p=$.extend({courseId:courseId},{unId: unId});
-        Project.ajax("/unversity/blind/course",p,null,true).ajaxOK(function(data) {
+        Project.ajax("/unversity/blind/course",p).ajaxOK(function(data) {
         },true);
     }
 </script>

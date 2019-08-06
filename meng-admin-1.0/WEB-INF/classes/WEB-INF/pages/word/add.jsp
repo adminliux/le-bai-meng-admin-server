@@ -118,7 +118,7 @@
             alert("请输入类名");
             return false;
         }
-        Project.ajax("/sensitive/words/insert",{word:name},null,true).ajaxOK(function(data) {
+        Project.ajax("/sensitive/words/insert",{word:name}).ajaxOK(function(data) {
 
         },true);
     }

@@ -177,7 +177,7 @@
             }
         }
         var img=$("input[name=img]").val();
-        Project.ajax("/advertisement/add",{type:type,value:value,img:img},null,true).ajaxOK(function(data) {
+        Project.ajax("/advertisement/add",{type:type,value:value,img:img}).ajaxOK(function(data) {
 
         },true);
     }

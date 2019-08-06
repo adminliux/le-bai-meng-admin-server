@@ -160,7 +160,7 @@
             var fromList=$("#From").formSerialize();
             var p=$.extend({pageNum: pageNum,pageSize:100},fromList);
 
-            Project.ajax("/user/find/user/and/info",p,null,true).ajaxOK(function(data) {
+            Project.ajax("/user/find/user/and/info",p).ajaxOK(function(data) {
                 $("#goodList").html(template("f1",data));//作用到表格
                 $("#page").html(template("f2",data));//作用到分页
                 $("#total").html(data.data.total);//作用到统计total
@@ -200,7 +200,7 @@
         function member_stop(obj,id){//id为用户的id，obj没用到
             layer.confirm('确认要删除该用户吗？',function(index){
                 layer.msg('已删除!',{icon: 5,time:1000});
-                Project.ajax("/user/delete",{id:id},null,true).ajaxOK(function(data) {
+                Project.ajax("/user/delete",{id:id}).ajaxOK(function(data) {
                     findUser();//刷新
                 });
             });

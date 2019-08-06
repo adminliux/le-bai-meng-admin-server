@@ -154,7 +154,7 @@
 <script type="text/javascript">
     findClassify();
     function findClassify() {
-        Project.ajax("/global/classify/list",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/global/classify/list",null).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到表格
             findUser();
         });
@@ -163,7 +163,7 @@
         var fromList=$("#From").formSerialize();
         var status="AUDITED";
         var p=$.extend({pageNum: pageNum},{status: status},fromList);
-		Project.ajax("/video/admin/page",p,null,true).ajaxOK(function(data) {
+		Project.ajax("/video/admin/page",p).ajaxOK(function(data) {
 			$("#goodList").html(template("f1",data));//作用到表格
 			$("#page").html(template("f2",data));//作用到分页
 			$("#total").html(data.data.total);//作用到统计total
@@ -174,14 +174,14 @@
     }
 
 	function updateSort(sort,id) {
-        Project.ajax("/video/updates",{id:id,sort:sort},null,true).ajaxOK(function(data) {
+        Project.ajax("/video/updates",{id:id,sort:sort}).ajaxOK(function(data) {
             layer.msg('成功!',{icon: 6,time:1000});
             findUser();//刷新
         });
     }
 
     function updatePraiseSum(praiseSum,id) {
-        Project.ajax("/video/updates",{id:id,praiseSum:praiseSum},null,true).ajaxOK(function(data) {
+        Project.ajax("/video/updates",{id:id,praiseSum:praiseSum}).ajaxOK(function(data) {
             layer.msg('成功!',{icon: 6,time:1000});
             findUser();//刷新
         });
@@ -191,7 +191,7 @@
     function member_stop(obj,id){//id为用户的id，obj没用到
         layer.confirm('确认要把该视频放入回收站吗？',function(index){
             var status ='NOT_PASS';//启用用户
-            Project.ajax("/video/updates",{id:id,status:status},null,true).ajaxOK(function(data) {
+            Project.ajax("/video/updates",{id:id,status:status}).ajaxOK(function(data) {
                     layer.msg('成功!',{icon: 6,time:1000});
                     findUser();//刷新
             });

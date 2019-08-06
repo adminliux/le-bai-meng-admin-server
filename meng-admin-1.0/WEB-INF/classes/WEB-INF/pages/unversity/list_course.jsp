@@ -153,7 +153,7 @@
                 }
                 var fromList = $("#From").formSerialize();
                 var p = $.extend({pageNum: pageNum}, fromList);
-                Project.ajax("/unversity/find/unversity", p, null, true).ajaxOK(function (data) {
+                Project.ajax("/unversity/find/unversity", p).ajaxOK(function (data) {
                     $("#goodList").html(template("f1", data));//作用到表格
                     $("#page").html(template("f2", data));//作用到分页
                     $("#total").html(data.data.total);//作用到统计total
@@ -182,7 +182,7 @@
                     return false;
                 }
                 layer.confirm('确认要删除该大学吗？', function (index) {
-                    Project.ajax("/unversity/delete", {id: id}, null, true).ajaxOK(function (data) {
+                    Project.ajax("/unversity/delete", {id: id}).ajaxOK(function (data) {
                         layer.msg('已删除!', {icon: 5, time: 1000});
                         findUser();//刷新
                     });
@@ -195,7 +195,7 @@
                     layer.msg('该位置已是最顶部了，不能上移!', {icon: 6, time: 1000});
                     return false;
                 }
-                Project.ajax("/unversity/move", {id: id, flag: flag}, null, true).ajaxOK(function (data) {
+                Project.ajax("/unversity/move", {id: id, flag: flag}).ajaxOK(function (data) {
                     layer.msg('成功!', {icon: 6, time: 1000});
                     findUser();//刷新
                 });
@@ -203,7 +203,7 @@
 
             function member_down(obj, id, sort) {
                 var flag = 1;
-                Project.ajax("/unversity/move", {id: id, flag: flag}, null, true).ajaxOK(function (data) {
+                Project.ajax("/unversity/move", {id: id, flag: flag}).ajaxOK(function (data) {
                     layer.msg('成功!', {icon: 6, time: 1000});
                     findUser();//刷新
                 });

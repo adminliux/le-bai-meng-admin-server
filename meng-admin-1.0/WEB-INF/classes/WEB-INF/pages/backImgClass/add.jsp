@@ -117,7 +117,7 @@
     * */
     function release(){
         var name = $("input[name=name]").val();
-        Project.ajax("/video/back/img/class/insert",{name:name},null,true).ajaxOK(function(data){
+        Project.ajax("/video/back/img/class/insert",{name:name}).ajaxOK(function(data){
 
         },true);
     }

@@ -150,7 +150,7 @@
 <script type="text/javascript">
     findClassify();
     function findClassify() {
-        Project.ajax("/video/back/img/class/list",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/video/back/img/class/list",null).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到表格
             findUser();
         });
@@ -158,7 +158,7 @@
 
     function findUser(){
         var id="${id}";
-        Project.ajax("/video/back/img/find",{id:id},null,true).ajaxOK(function(data) {
+        Project.ajax("/video/back/img/find",{id:id}).ajaxOK(function(data) {
             $("select[name=classId]").val(data.data.classId);
             $("input[name=name]").val(data.data.name);
             $("input[name=imgUrl]").val(data.data.imgUrl);
@@ -174,7 +174,7 @@
         var name=$("input[name=name]").val();
         var imgUrl=$("input[name=imgUrl]").val();
         var previewImgUrl=$("input[name=previewImgUrl]").val();
-        Project.ajax("/video/back/img/update",{classId:classId,name:name,imgUrl:imgUrl,previewImgUrl:previewImgUrl,id:id},null,true).ajaxOK(function(data) {
+        Project.ajax("/video/back/img/update",{classId:classId,name:name,imgUrl:imgUrl,previewImgUrl:previewImgUrl,id:id}).ajaxOK(function(data) {
 
         },true);
     }

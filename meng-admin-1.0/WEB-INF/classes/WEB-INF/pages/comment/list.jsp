@@ -143,7 +143,7 @@
             var endDate = $("input[name=endDate]").val();
             var relaId = $("input[name=relaId]").val();
             var userId = $("input[name=userId]").val();
-            Project.ajax("/comment/list/all",{sort:sort,type:type,startDate:startDate,endDate:endDate,relaId:relaId,userId:userId,pageSize:20,pageNum:pageNum},null,true).ajaxOK(function(data) {
+            Project.ajax("/comment/list/all",{sort:sort,type:type,startDate:startDate,endDate:endDate,relaId:relaId,userId:userId,pageSize:20,pageNum:pageNum}).ajaxOK(function(data) {
                 $("#goodList").html(template("f1",data));//作用到表格
                 $("#page").html(template("f2",data));//作用到分页
                 $("#total").html(data.data.total);//作用到统计total
@@ -155,7 +155,7 @@
 
         function deleComment(id,type){
 
-            Project.ajax("/comment/dele",{id:id,type:type},null,true).ajaxOK(function(data) {
+            Project.ajax("/comment/dele",{id:id,type:type}).ajaxOK(function(data) {
                 layer.msg(data.msg,{icon: 5,time:3000});
                 findUser();//刷新
             },true);

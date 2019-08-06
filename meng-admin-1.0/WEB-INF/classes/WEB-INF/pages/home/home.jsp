@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="page-container">
-    <p class="f-20 text-success">欢迎使用百乐萌后台管理系统</p>
+    <p class="f-20 text-success">欢迎使用后台管理系统</p>
     <p>用户名：<font color="blue" name="adminName"></font></p>
     <p>角 色：<font color="blue" name="adminType"></font></p>
     <p>登录时间：<font color="red" name="loginTime"></font></p>
@@ -97,7 +97,7 @@
 
     function findUser() {
         window.apiHost = "${path}";
-        Project.ajax("/api/admin/find/admin/user").ajaxOK(function (data) {
+        Project.ajax("/api/admin/find/admin/user", null,null, true).ajaxOK(function (data) {
             $("font[name=adminName]").text(data.data.data.name);
             if (data.data.data.type === 0) {
                 $("font[name=adminType]").text("超级管理员");

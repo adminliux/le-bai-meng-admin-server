@@ -92,7 +92,7 @@
         var fromList=$("#From").formSerialize();
         var p=$.extend({pageNum: pageNum},{status: status},fromList);
 
-        Project.ajax("/collage/query/collage/list",p,null,true).ajaxOK(function(data) {
+        Project.ajax("/collage/query/collage/list",p).ajaxOK(function(data) {
             $("#goodList").html(template("f1",data));//作用到表格
             //$("#page").html(template("f2",data));//作用到分页
             //$("#total").html(data.data.total);//作用到统计total

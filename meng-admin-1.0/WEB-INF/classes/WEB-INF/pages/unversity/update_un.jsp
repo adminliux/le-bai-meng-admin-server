@@ -138,7 +138,7 @@
 
     function findUn() {
         var id="${unId}";
-        Project.ajax("/unversity/find/un/bykey",{id:id},null,true).ajaxOK(function(data) {
+        Project.ajax("/unversity/find/un/bykey",{id:id}).ajaxOK(function(data) {
             $("#classifyList2").html(template("f5",data));//作用到表格
         });
     }

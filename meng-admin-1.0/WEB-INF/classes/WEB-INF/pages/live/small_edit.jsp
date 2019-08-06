@@ -185,7 +185,7 @@
     };
 
     function getMysign() {
-        Project.ajax("/video/get/sign", null, null, true).ajaxOK(function (data) {
+        Project.ajax("/video/get/sign", null).ajaxOK(function (data) {
             mysign = data.msg
         })
     }
@@ -197,7 +197,7 @@
     function preview(file) {
         var fd = new FormData();
         fd.append("files", file);
-        Project.ajaxUploadVideoFile('/video/upload/tenxun', fd, null, true).ajaxOK(function (data) {
+        Project.ajaxUploadVideoFile('/video/upload/tenxun', fd).ajaxOK(function (data) {
             var src = data['data'];
             $("*[data-src=previewImg]").attr("src", src);
             $("input[name=previewImg]").val(src);

@@ -140,7 +140,7 @@ l
         var content = $("input[name=context]").val();
         var userId = $("input[name=userId]").val();
         var type = $("select[name=type]").val();
-        Project.ajax("/user/system/msg/send/msg",{content:content,userId:userId,type:type},null,true).ajaxOK(function(data){
+        Project.ajax("/user/system/msg/send/msg",{content:content,userId:userId,type:type}).ajaxOK(function(data){
         },true);
     }
     /* 上传图片 */

@@ -282,7 +282,7 @@
 
 
     function findClassify(id, status) {
-        Project.ajax("/global/classify/list", null, null, true).ajaxOK(function (data) {
+        Project.ajax("/global/classify/list").ajaxOK(function (data) {
             $("#classifyList").html(template("f4", data));//作用到表格
             $("#classifyList option[value='" + id + "']").attr("selected", true);
 
@@ -297,7 +297,7 @@
 
     function findVideo() {
         var id = "${id}";
-        Project.ajax("/live/live/course/detail", {id: id}, null, true).ajaxOK(function (data) {
+        Project.ajax("/live/live/course/detail", {id: id}).ajaxOK(function (data) {
             $("#classifyList2").html(template("f5", data));//作用到表格
             editor.html(data.data.roomDesc);
             findClassify(data.data.classifyId, data.data.status);
@@ -334,7 +334,7 @@
         var p = $.extend({id: id}, {price: price}, {userId: userId}, {previewImg: previewImg}, {roomDesc: roomDesc},
             {classifyId: classifyId}, {roomDesc: roomDesc}, {roomTitle: roomTitle}, {beginTime: beginTime}, {overTime: overTime},
             {personNum: personNum}, {spellPrice: spellPrice}, {collageTime: collageTime}, {status: status});
-        Project.ajax("/live/update", p, null, true).ajaxOK(function (data) {
+        Project.ajax("/live/update", p).ajaxOK(function (data) {
         }, true);
     }
 

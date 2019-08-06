@@ -34,7 +34,7 @@
     function findVideo(){
         var id="${id}";
         var type = "${type}"
-        Project.ajax("/comment/select/byid",{id:id,type:type},null,true).ajaxOK(function(data) {
+        Project.ajax("/comment/select/byid",{id:id,type:type}).ajaxOK(function(data) {
             $("#classifyList2").html(template("f5",data));//作用到表格
         });
     }

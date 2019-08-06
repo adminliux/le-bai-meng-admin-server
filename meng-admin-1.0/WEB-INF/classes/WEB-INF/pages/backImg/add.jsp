@@ -150,7 +150,7 @@
 <script type="text/javascript">
     findClassify();
     function findClassify() {
-        Project.ajax("/video/back/img/class/list",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/video/back/img/class/list",null).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到表格
         });
     }
@@ -160,7 +160,7 @@
         var name=$("input[name=name]").val();
         var imgUrl=$("input[name=imgUrl]").val();
         var previewImgUrl=$("input[name=previewImgUrl]").val();
-        Project.ajax("/video/back/img/insert",{classId:classId,name:name,imgUrl:imgUrl,previewImgUrl:previewImgUrl},null,true).ajaxOK(function(data) {
+        Project.ajax("/video/back/img/insert",{classId:classId,name:name,imgUrl:imgUrl,previewImgUrl:previewImgUrl}).ajaxOK(function(data) {
 
         },true);
     }

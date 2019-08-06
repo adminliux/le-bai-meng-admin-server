@@ -71,7 +71,7 @@
         var videoId=$("input[name=videoId]").val();
         var activityId=$("input[name=activityId]").val();
         var p=$.extend({activityId:activityId},{videoId: videoId});
-        Project.ajax("/activity/upload/video",p,null,true).ajaxOK(function(data) {
+        Project.ajax("/activity/upload/video",p).ajaxOK(function(data) {
         },true);
     }
 </script>

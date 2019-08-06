@@ -173,7 +173,7 @@
     findClassify();
 
     function findClassify() {
-        Project.ajax("/global/classify/list", null, null, true).ajaxOK(function (data) {
+        Project.ajax("/global/classify/list").ajaxOK(function (data) {
             $("#classifyList").html(template("f4", data));//作用到表格
             findUser();
         });
@@ -185,7 +185,7 @@
         var fromList = $("#From").formSerialize();
         var p = $.extend({pageNum: pageNum}, fromList);
         p.courseId = courseId;
-        Project.ajax("/course/detial/pages", p, null, true).ajaxOK(function (data) {
+        Project.ajax("/course/detial/pages", p).ajaxOK(function (data) {
             $("#goodList").html(template("f1", data));//作用到表格
             $("#page").html(template("f2", data));//作用到分页
             $("#total").html(data.data.total);//作用到统计total
@@ -205,7 +205,7 @@
 
     function member_stop(id) {
         layer.confirm('确认要删除吗？', function () {
-            Project.ajax("/course/detial/delete", {id: id}, null, true).ajaxOK(function (data) {
+            Project.ajax("/course/detial/delete", {id: id}).ajaxOK(function (data) {
                 layer.msg('成功!', {icon: 6, time: 1000});
                 findUser();//刷新
             });

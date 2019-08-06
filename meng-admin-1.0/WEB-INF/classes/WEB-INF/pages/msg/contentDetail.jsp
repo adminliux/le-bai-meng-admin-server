@@ -34,7 +34,7 @@
     selectAdvert();
     function selectAdvert(){
         var id='${id}';
-        Project.ajax("/user/system/msg/find",{id:id},null,true).ajaxOK(function(data){
+        Project.ajax("/user/system/msg/find",{id:id}).ajaxOK(function(data){
            $("#goods*jsp").html(data.data.content);
         });
     }

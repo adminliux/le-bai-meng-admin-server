@@ -142,7 +142,7 @@
 <script type="text/javascript">
     findVideo();
     function findClassify(id) {
-        Project.ajax("/global/classify/list/yes",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/global/classify/list/yes",null).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到表格
             $("#classifyList option[value='"+id+"']").attr("selected",true);
         });

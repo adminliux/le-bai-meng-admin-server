@@ -119,7 +119,7 @@
             var   id='${id}';
             var fromList=$("#From").formSerialize();
             var p=$.extend({pageNum: pageNum},{status: status},fromList);
-            Project.ajax("/collage/query/collage/list", {id:id,pageNum:pageNum},null,true).ajaxOK(function(data) {
+            Project.ajax("/collage/query/collage/list", {id:id,pageNum:pageNum}).ajaxOK(function(data) {
                 $("#goodsList").html(template("f1",data));
                 $("#page").html(template("f2",data));//作用到分页
                 $("#total").html(data.data.total);//作用到统计total
@@ -130,7 +130,7 @@
         function member_stop(obj,userId){//id为用户的id，obj没用到
             var   id ='${id}';
             layer.confirm('确认要删除该成员吗？',function(index){
-                Project.ajax("/collage/delete/employeebyid",{id:id,userId:userId},null,true).ajaxOK(function(data) {
+                Project.ajax("/collage/delete/employeebyid",{id:id,userId:userId}).ajaxOK(function(data) {
                     layer.msg('成功!',{icon: 6,time:1000});
                     findUser();//刷新
                     window.parent.location.reload();

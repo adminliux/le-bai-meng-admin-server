@@ -204,7 +204,7 @@
         var liveCourseId='${liveCourseId}';
         var fromList=$("#From").formSerialize();
         var p=$.extend({pageNum: pageNum},{liveCourseId: liveCourseId},fromList);
-		Project.ajax("/user/find/user/and/info",p,null,true).ajaxOK(function(data) {
+		Project.ajax("/user/find/user/and/info",p).ajaxOK(function(data) {
 			$("#goodList").html(template("f1",data));//作用到表格
 			$("#page").html(template("f2",data));//作用到分页
 			$("#total").html(data.data.total);//作用到统计total
@@ -222,7 +222,7 @@
         for(var i=0; i<obj.length; i++){
             if(obj[i].checked) s+=obj[i].value+',';
         }
-        Project.ajax("/live/course/admin/insert/student",{liveCourseId:liveCourseId,ids:s},null,true).ajaxOK(function(data) {
+        Project.ajax("/live/course/admin/insert/student",{liveCourseId:liveCourseId,ids:s}).ajaxOK(function(data) {
             findUser();
         });
     }

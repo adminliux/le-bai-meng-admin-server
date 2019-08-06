@@ -107,7 +107,7 @@
     findUser();
 
     function findUser(pageNum) {
-        Project.ajax("/star/order/admin/page", null, null, true).ajaxOK(function (data) {
+        Project.ajax("/star/order/admin/page", null).ajaxOK(function (data) {
             $("#goodList").html(template("f1", data));//作用到表格
         });
     }
@@ -118,7 +118,7 @@
             layer.msg('该位置已是最顶部了，不能上移!', {icon: 6, time: 1000});
             return false;
         }
-        Project.ajax("/star/order/move", {id: id, flag: flag}, null, true).ajaxOK(function (data) {
+        Project.ajax("/star/order/move", {id: id, flag: flag}).ajaxOK(function (data) {
             layer.msg('成功!', {icon: 6, time: 1000});
             findUser();//刷新
         });
@@ -126,14 +126,14 @@
 
     function member_down(obj, id, sort) {
         var flag = 1;
-        Project.ajax("/star/order/move", {id: id, flag: flag}, null, true).ajaxOK(function (data) {
+        Project.ajax("/star/order/move", {id: id, flag: flag}).ajaxOK(function (data) {
             layer.msg('成功!', {icon: 6, time: 1000});
             findUser();//刷新
         });
     }
 
     function article_shenhe(obj, id) {
-        Project.ajax("/star/order/delete", {id: id}, null, true).ajaxOK(function (data) {
+        Project.ajax("/star/order/delete", {id: id}).ajaxOK(function (data) {
             layer.msg('成功!', {icon: 6, time: 1000});
             findUser();//刷新
         });

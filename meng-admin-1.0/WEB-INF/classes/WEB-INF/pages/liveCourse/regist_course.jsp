@@ -87,7 +87,7 @@
             return false;
         }
 
-        Project.ajax("/live/course/enroll/regist/course",{userId:userId,courseId:courseId},null,true).ajaxOK(function(data) {
+        Project.ajax("/live/course/enroll/regist/course",{userId:userId,courseId:courseId}).ajaxOK(function(data) {
 
         },true);
 

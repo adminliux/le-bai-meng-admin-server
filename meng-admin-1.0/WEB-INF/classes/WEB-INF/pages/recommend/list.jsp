@@ -169,7 +169,7 @@
             findClassify();
 
             function findClassify() {
-                Project.ajax("/global/classify/list", null, null, true).ajaxOK(function (data) {
+                Project.ajax("/global/classify/list").ajaxOK(function (data) {
                     $("#classifyList").html(template("f4", data));//作用到表格
                     findUser();
                 });
@@ -178,7 +178,7 @@
             function findUser(pageNum) {
                 var fromList = $("#From").formSerialize();
                 var p = $.extend({pageNum: pageNum}, fromList);
-                Project.ajax("/recommend/admin/page", p, null, true).ajaxOK(function (data) {
+                Project.ajax("/recommend/admin/page", p).ajaxOK(function (data) {
                     $("#goodList").html(template("f1", data));//作用到表格
                     $("#page").html(template("f2", data));//作用到分页
                     $("#total").html(data.data.total);//作用到统计total
@@ -197,14 +197,14 @@
             <%--}--%>
 
             function member_up(obj, id) {//id为用户的id，obj没用到
-                Project.ajax("/recommend/update/up", {id: id}, null, true).ajaxOK(function (data) {
+                Project.ajax("/recommend/update/up", {id: id}).ajaxOK(function (data) {
                     layer.msg('成功!', {icon: 6, time: 1000});
                     findUser();//刷新
                 });
             }
 
             function member_down(obj, id) {//id为用户的id，obj没用到
-                Project.ajax("/recommend/update/down", {id: id}, null, true).ajaxOK(function (data) {
+                Project.ajax("/recommend/update/down", {id: id}).ajaxOK(function (data) {
                     layer.msg('成功!', {icon: 6, time: 1000});
                     findUser();//刷新
                 });
@@ -212,7 +212,7 @@
 
             function member_stop(obj, id) {//id为用户的id，obj没用到
                 layer.confirm('确认要删除吗？', function (index) {
-                    Project.ajax("/recommend/delete", {id: id}, null, true).ajaxOK(function (data) {
+                    Project.ajax("/recommend/delete", {id: id}).ajaxOK(function (data) {
                         layer.msg('成功!', {icon: 6, time: 1000});
                         findUser();//刷新
                     });

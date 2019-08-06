@@ -88,8 +88,6 @@
                         </ul>
                     </li>
 
-                    </li>
-
                     <li id="Hui-skin" class="dropDown right dropDown_hover"><a href="javascript:;" class="dropDown_A"
                                                                                title="换肤"><i class="Hui-iconfont"
                                                                                              style="font-size:18px">&#xe62a;</i></a>
@@ -146,7 +144,260 @@
              </dd>
          </dl>--%>
         <dl id="menu-comments">
-            <dt class="tips"><i class="Hui-iconfont">&#xe622;</i> 视频管理2<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            <dt class="tips"><i class="Hui-iconfont">M</i> 用户资金<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            </dt>
+            <dd>
+                <ul>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserCapital"
+                            data-title="用户账户" href="javascript:void(0);">用户账户</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserCapitalStream"
+                            data-title="资金流水" href="javascript:void(0);">资金流水</a>
+                    </li>
+                </ul>
+
+            </dd>
+        </dl>
+        <dl id="menu-comments">
+            <dt class="tips"><i class="Hui-iconfont">S</i> 签到管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            </dt>
+            <dd>
+                <ul>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserSignIn"
+                            data-title="签到列表" href="javascript:void(0);">签到列表</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserCapitalStream"
+                            data-title="奖励金币" href="javascript:void(0);">奖励金币</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserSignInContinuity"
+                            data-title="连续签到" href="javascript:void(0);">连续签到</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserSignInRemindTime"
+                            data-title="连续签到" href="javascript:void(0);">提醒时间</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserSignInRemindSwitch"
+                            data-title="连续签到" href="javascript:void(0);">提醒开关</a>
+                    </li>
+                </ul>
+
+            </dd>
+        </dl>
+        <dl id="menu-comments">
+            <dt class="tips"><i class="Hui-iconfont">A</i> 相册<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            </dt>
+            <dd>
+                <ul>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}Album"
+                            data-title="相册列表" href="javascript:void(0);">列表</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}AlbumPhoto"
+                            data-title="相册照片列表" href="javascript:void(0);">照片列表</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}AlbumClassify"
+                            data-title="分相册类" href="javascript:void(0);">分类</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="$相册{path}/base/list?type=${baseEntityPackage}AlbumComment"
+                            data-title="评论" href="javascript:void(0);">评论</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}AlbumStatisticalPraise"
+                            data-title="相册点赞" href="javascript:void(0);">点赞</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}AlbumStatisticalClick"
+                            data-title="相册点击量" href="javascript:void(0);">点击量</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}AlbumCommentPraise"
+                            data-title="相册评论点赞" href="javascript:void(0);">评论点赞</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}AlbumClassify"
+                            data-title="相册分类" href="javascript:void(0);">分类</a>
+                    </li>
+                </ul>
+
+            </dd>
+        </dl>
+
+        <dl id="menu-comments">
+            <dt class="tips"><i class="Hui-iconfont">CM</i> 评论管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            </dt>
+            <dd>
+                <ul>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackageSer}VideoComment"
+                            data-title="视频评论" href="javascript:void(0);">视频评论</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackageSer}LiveCourseComment"
+                            data-title="课程评论" href="javascript:void(0);">课程评论</a>
+                    </li>
+                </ul>
+
+            </dd>
+        </dl>
+
+        <dl id="menu-comments">
+            <dt class="tips"><i class="Hui-iconfont">M</i> 上线统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            </dt>
+            <dd>
+                <ul>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserStartApp"
+                            data-title="上线统计列表" href="javascript:void(0);">列表</a>
+                    </li>
+                </ul>
+
+            </dd>
+        </dl>
+        <dl id="menu-comments">
+            <dt class="tips"><i class="Hui-iconfont">P</i> 推送<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            </dt>
+            <dd>
+                <ul>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserPush"
+                            data-title="设备绑定列表" href="javascript:void(0);">设备绑定列表</a>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+        <dl id="menu-comments">
+            <dt class="tips"><i class="Hui-iconfont">PO</i> 用户位置<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            </dt>
+            <dd>
+                <ul>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserPosition"
+                            data-title="用户位置列表" href="javascript:void(0);">列表</a>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+
+        <dl id="menu-comments">
+            <dt class="tips"><i class="Hui-iconfont">GV</i> 生成视频<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            </dt>
+            <dd>
+                <ul>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}PictureAlbumTemplate"
+                            data-title="模版列表" href="javascript:void(0);">模版列表</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}Music"
+                            data-title="音乐模版列表" href="javascript:void(0);">音乐模版列表</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}MusicKeyword"
+                            data-title="音乐关键字" href="javascript:void(0);">音乐关键字</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}PictureAlbumTemplateKeyword"
+                            data-title="模版关键字" href="javascript:void(0);">模版关键字</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}MusicAuthor"
+                            data-title="音乐作家" href="javascript:void(0);">音乐作家</a>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+
+        <dl id="menu-comments">
+            <dt class="tips"><i class="Hui-iconfont">G</i> 获取记录<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            </dt>
+            <dd>
+                <ul>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserStartApp"
+                            data-title="获取列表" href="javascript:void(0);">UserGiftSteal</a>
+                    </li>
+                </ul>
+
+            </dd>
+        </dl>
+
+        <dl id="menu-comments">
+            <dt class="tips"><i class="Hui-iconfont">M</i> 留言板<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            </dt>
+            <dd>
+                <ul>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserLeavingMessage"
+                            data-title="留言板列表" href="javascript:void(0);">列表</a>
+                    </li>
+                </ul>
+
+            </dd>
+        </dl>
+
+        <dl id="menu-comments">
+            <dt class="tips"><i class="Hui-iconfont">F</i> 朋友圈<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            </dt>
+            <dd>
+                <ul>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}CircleOfFriends"
+                            data-title="朋友圈列表" href="javascript:void(0);">列表</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}CircleOfFriendsPhoto"
+                            data-title="朋友圈照片列表" href="javascript:void(0);">照片列表</a>
+                    </li>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}CircleOfFriendsComment"
+                            data-title="朋友圈评论" href="javascript:void(0);">评论</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}CircleOfFriendsStatisticalPraise"
+                            data-title="朋友圈点赞" href="javascript:void(0);">点赞</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}CircleOfFriendsStatisticalClick"
+                            data-title="朋友圈点击量" href="javascript:void(0);">点击量</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackage}CircleOfFriendsCommentPraise"
+                            data-title="朋友圈评论点赞" href="javascript:void(0);">评论点赞</a>
+                    </li>
+                </ul>
+
+            </dd>
+        </dl>
+
+        <dl id="menu-comments">
+            <dt class="tips"><i class="Hui-iconfont">T</i> 邀请管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            </dt>
+            <dd>
+                <ul>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=com.rpframework.module.common.bottom.entity.UserInvitation"
+                            data-title="邀请列表" href="javascript:void(0);">邀请列表</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=com.rpframework.module.common.bottom.entity.UserInvitationMoneyCumulative"
+                            data-title="金币累计列表" href="javascript:void(0);">金币累计列表</a>
+                    </li>
+                </ul>
+
+            </dd>
+        </dl>
+        <dl id="menu-comments">
+            <dt class="tips"><i class="Hui-iconfont">V</i> 视频查询<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
             </dt>
             <dd>
                 <ul>
@@ -159,7 +410,7 @@
             </dd>
         </dl>
         <dl id="menu-comments">
-            <dt class="tips"><i class="Hui-iconfont">&#xe622;</i> 系统配置<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
+            <dt class="tips"><i class="Hui-iconfont">S</i> 系统配置<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i>
             </dt>
             <dd>
                 <ul>
@@ -547,7 +798,7 @@
 
     function getMsgCount() {
 
-        Project.ajax("/record/find", null, null, true).ajaxOK(function (data) {
+        Project.ajax("/record/find", null, null).ajaxOK(function (data) {
             $("span[name=commentNumber]").html(data.data.commentNumber);
             $("span[name=videoNumber]").html(data.data.videoNumber);
             if (data.data.comment) {

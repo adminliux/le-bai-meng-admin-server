@@ -155,7 +155,7 @@
 	var pageNum='${pageNum}';
     findClassify();
     function findClassify() {
-        Project.ajax("/global/classify/list",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/global/classify/list",null).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到表格
             findUser();
         });
@@ -168,7 +168,7 @@
         var status="AUDIT";
         var sort=100;
         var p=$.extend({pageNum: pageNum},{status: status},{sort: sort},fromList);
-		Project.ajax("/video/admin/page",p,null,true).ajaxOK(function(data) {
+		Project.ajax("/video/admin/page",p).ajaxOK(function(data) {
 			$("#goodList").html(template("f1",data));//作用到表格
 			$("#page").html(template("f2",data));//作用到分页
 			$("#total").html(data.data.total);//作用到统计total
@@ -181,7 +181,7 @@
 	function member_stop(obj,id){//id为用户的id，obj没用到
         var remarks = prompt("请输入失败原因:","");
         var status ='NOT_PASS';
-        Project.ajax("/video/update",{id:id,status:status,remarks:remarks},null,true).ajaxOK(function(data) {
+        Project.ajax("/video/update",{id:id,status:status,remarks:remarks}).ajaxOK(function(data) {
             layer.msg('成功!',{icon: 6,time:1000});
             findUser();//刷新
         });
@@ -195,7 +195,7 @@
 	function member_start(obj,id){//id为用户的id，obj没用到
         layer.confirm('确认审核通过吗？',function(index){
             var status ='AUDITED';//启用用户
-            Project.ajax("/video/update",{id:id,status:status},null,true).ajaxOK(function(data) {
+            Project.ajax("/video/update",{id:id,status:status}).ajaxOK(function(data) {
                 layer.msg('成功!',{icon: 6,time:1000});
                 findUser();//刷新
             });

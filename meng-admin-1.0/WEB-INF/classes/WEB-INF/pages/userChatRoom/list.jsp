@@ -192,13 +192,13 @@
 <script type="text/javascript">
     findCity();
 	function findCity() {
-        Project.ajax("/region/select/region/city/list",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/region/select/region/city/list",null).ajaxOK(function(data) {
             $("#cityList").html(template("f3",data));//作用到表格
             findClassify();
         });
     }
     function findClassify() {
-        Project.ajax("/global/classify/list",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/global/classify/list",null).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到表格
             findUser();
         });
@@ -207,7 +207,7 @@
     function findUser(pageNum){
         var fromList=$("#From").formSerialize();
         var p=$.extend({pageNum: pageNum},fromList);
-		Project.ajax("/user/chat/room/admin/list",p,null,true).ajaxOK(function(data) {
+		Project.ajax("/user/chat/room/admin/list",p).ajaxOK(function(data) {
 			$("#goodList").html(template("f1",data));//作用到表格
 			$("#page").html(template("f2",data));//作用到分页
 			$("#total").html(data.data.total);//作用到统计total

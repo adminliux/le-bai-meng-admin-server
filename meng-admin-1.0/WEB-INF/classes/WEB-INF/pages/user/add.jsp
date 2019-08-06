@@ -125,7 +125,7 @@
 <script type="text/javascript">
     function release() {
             var fromList=$("#From").formSerialize();
-            Project.ajax("/user/admin/inser",fromList,null,true).ajaxOK(function(data) {
+            Project.ajax("/user/admin/inser",fromList).ajaxOK(function(data) {
 
             },true);
     }

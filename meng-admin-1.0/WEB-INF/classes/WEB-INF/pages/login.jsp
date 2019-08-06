@@ -76,7 +76,7 @@
 //        }
         window.apiHost = "${path}";
         //调用登录接口
-        Project.ajax("/api/admin/login", {name: name, password: password}).ajaxOK(function (data) {
+        Project.ajax("/api/admin/login", {name: name, password: password}, null, true).ajaxOK(function (data) {
             var code = data.code;
             if (code != 'SUCCESS') {
                 alert("用户名或密码错误");

@@ -69,7 +69,7 @@
         findUser();
         function findUser(pageNum){
             var id='${id}';
-            Project.ajax("/notice/qcb/find",{id:id},null,true).ajaxOK(function(data) {
+            Project.ajax("/notice/qcb/find",{id:id}).ajaxOK(function(data) {
                 $("#goodList").html(template("f1",data));//作用到表格
                 biggerr();//初始页
                 // 面调用图片悬浮放大方法

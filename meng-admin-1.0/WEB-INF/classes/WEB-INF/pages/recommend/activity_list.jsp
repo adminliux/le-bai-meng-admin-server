@@ -96,7 +96,7 @@
         var status="AUDITED";
         var id='${id}';
 
-        Project.ajax("/activity/query/activitybyid",{id:id,status: status},null,true).ajaxOK(function(data) {
+        Project.ajax("/activity/query/activitybyid",{id:id,status: status}).ajaxOK(function(data) {
             $("#goodList").html(template("f1",data));//作用到表格
             $("#page").html(template("f2",data));//作用到分页
             $("#total").html(data.data.total);//作用到统计total

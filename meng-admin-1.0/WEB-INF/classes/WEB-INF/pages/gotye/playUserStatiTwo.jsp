@@ -91,7 +91,7 @@
         var roomId='${roomId}';
         var fromList=$("#From").formSerialize();
         var p=$.extend({roomId: roomId},fromList);
-		Project.ajax("/gotye/get/play/user/stati",p,null,true).ajaxOK(function(data) {
+		Project.ajax("/gotye/get/play/user/stati",p).ajaxOK(function(data) {
 			$("#goodList").html(template("f1",data));//作用到表格
 			biggerr();//初始页
 			// 面调用图片悬浮放大方法

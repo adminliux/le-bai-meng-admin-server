@@ -184,32 +184,20 @@
     findClassify();
 
     function findClassify() {
-        Project.ajax("/global/classify/list", null, null, true).ajaxOK(function (data) {
+        Project.ajax("/global/classify/list").ajaxOK(function (data) {
             $("#classifyList").html(template("f4", data));//作用到表格
-            getMysign()
-
+            getMysign();
         });
     }
 
-    var getSignature = function (callback) {
-        $.ajax({
-            url: apiHost + '/video/get/sign',  //获取客户端上传签名的 URL
-            type: 'POST',
-            dataType: 'json',
-            success: function (result) {//result 是派发签名服务器的回包
-                //假设回包为 { "code": 0, "signature": "xxxx"  }
-                //将签名传入 callback，SDK 则能获取这个上传签名，用于后续的上传视频步骤。
-                callback(result.data);
-            }
-        });
-    };
-
-    function getMysign() {
-        Project.ajax("/video/get/sign", null, null, true).ajaxOK(function (data) {
-            mysign = data.msg
+    function getMysign(callback) {
+        Project.ajax("/video/get/sign", null).ajaxOK(function (data) {
+            mysign = data.data;
+            if (callback) callback(mysign);
         })
     }
 
+    var getSignature = getMysign;
     var scale = 0.3;
 
     function videoCaptureImage(videoElement) {
@@ -405,7 +393,7 @@
     function preview(file) {
         var fd = new FormData();
         fd.append("files", file);
-        Project.ajaxUploadVideoFile('/video/upload/tenxun', fd, null, true).ajaxOK(function (data) {
+        Project.ajaxUploadVideoFile('/video/upload/tenxun', fd).ajaxOK(function (data) {
             var src = data['data'];
             $("#zhaopian").attr("src", src);
             $("input[name=previewImg]").val(src);

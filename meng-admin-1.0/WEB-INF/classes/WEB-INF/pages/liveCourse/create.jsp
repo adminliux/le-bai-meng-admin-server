@@ -244,7 +244,7 @@
     });
 
     function queryUnversity() {
-        Project.ajax("/unversity/query/all",null,null,true).ajaxOK(function (data) {
+        Project.ajax("/unversity/query/all",null).ajaxOK(function (data) {
             var list = data.data;
             document.getElementById('unList').add(new Option("", ""))
             for(var  i = 0;i<list.length; i++){
@@ -256,7 +256,7 @@
     }
 
     function queryClassify() {
-        Project.ajax("/global/classify/list",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/global/classify/list",null).ajaxOK(function(data) {
             var list = data.data;
             document.getElementById('courseType').add(new Option("", ""))
             for(var  i = 0;i<list.length; i++){
@@ -391,7 +391,7 @@
         var fd  = {"roomTitle":title,"previewImg":previewImg,"classifyId":classifyId,
             "userId":userId,"price":price,"roomDesc":roomDesc,"beginTime":beginTime,"overTime":overTime,
                 "roomTitle":title,"price":price,"spellPrice":spellPrice,"unId":unId ,"courseDetial":courseDital  }
-        Project.ajax("/live/create/course",fd,null,true).ajaxOK(function (data) {
+        Project.ajax("/live/create/course",fd).ajaxOK(function (data) {
             alert("创建成功");
         });
 
@@ -419,7 +419,7 @@
     function preview(file) {
         var fd = new FormData();
         fd.append("files",file.files[0]);
-        Project.ajaxUploadVideoFile('/video/upload/tenxun', fd, null, true).ajaxOK(function (data) {
+        Project.ajaxUploadVideoFile('/video/upload/tenxun', fd).ajaxOK(function (data) {
             var src = data['data'];
             $("#zhaopian").attr("src",src);
             $("input[name=previewImg]").val(src);

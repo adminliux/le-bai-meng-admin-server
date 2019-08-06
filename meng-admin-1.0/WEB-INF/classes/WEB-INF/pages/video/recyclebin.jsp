@@ -149,7 +149,7 @@
         <script>
             findClassify();
             function findClassify() {
-                Project.ajax("/global/classify/list",null,null,true).ajaxOK(function(data) {
+                Project.ajax("/global/classify/list",null).ajaxOK(function(data) {
                     $("#classifyList").html(template("f4",data));//作用到表格
                     findUser();
                 });
@@ -158,7 +158,7 @@
                 var fromList=$("#From").formSerialize();
                 var status="NOT_PASS";
                 var p=$.extend({pageNum: pageNum},{status: status},fromList);
-                Project.ajax("/video/admin/page",p,null,true).ajaxOK(function(data) {
+                Project.ajax("/video/admin/page",p).ajaxOK(function(data) {
                     $("#goodList").html(template("f1",data));//作用到表格
                     $("#page").html(template("f2",data));//作用到分页
                     $("#total").html(data.data.total);//作用到统计total
@@ -169,14 +169,14 @@
             }
 
             function updateSort(sort,id) {
-                Project.ajax("/video/update",{id:id,sort:sort},null,true).ajaxOK(function(data) {
+                Project.ajax("/video/update",{id:id,sort:sort}).ajaxOK(function(data) {
                     layer.msg('成功!',{icon: 6,time:1000});
                     findUser();//刷新
                 });
             }
 
             function updatePraiseSum(praiseSum,id) {
-                Project.ajax("/video/update",{id:id,praiseSum:praiseSum},null,true).ajaxOK(function(data) {
+                Project.ajax("/video/update",{id:id,praiseSum:praiseSum}).ajaxOK(function(data) {
                     layer.msg('成功!',{icon: 6,time:1000});
                     findUser();//刷新
                 });
@@ -189,7 +189,7 @@
             function member_stop(obj,id){//id为用户的id，obj没用到
                 layer.confirm('确认要把该视频彻底删除，并且不能恢复吗？',function(index){
 
-                    Project.ajax("/video/delete",{id:id},null,true).ajaxOK(function(data) {
+                    Project.ajax("/video/delete",{id:id}).ajaxOK(function(data) {
                         layer.msg('成功!',{icon: 6,time:1000});
                         findUser();//刷新
                     });
@@ -205,7 +205,7 @@
                 layer.confirm('确认要恢复该用户吗？',function(index){
                     layer.msg('已恢复!',{icon: 6,time:1000});
                     var status ='AUDITED';//启用用户
-                    Project.ajax("/video/updates",{id:id,status:status},null,true).ajaxOK(function(data) {
+                    Project.ajax("/video/updates",{id:id,status:status}).ajaxOK(function(data) {
                         layer.msg('成功!',{icon: 6,time:1000});
                         findUser();//刷新
                     });

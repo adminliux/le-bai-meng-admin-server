@@ -164,14 +164,14 @@
 <script type="text/javascript">
     findClassify();
     function findClassify() {
-        Project.ajax("/global/classify/list",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/global/classify/list",null).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到下拉列表
             getCourse();
         });
     }
     function  getCourse() {
 		var id = "${id}";
-        Project.ajax("/live/live/course/detail",{id:id},null,true).ajaxOK(function(data) {
+        Project.ajax("/live/live/course/detail",{id:id}).ajaxOK(function(data) {
             $("#classifyList2").html(template("f5",data));//作用到表格
 
         });
@@ -203,7 +203,7 @@
     function preview(file) {
         var fd = new FormData();
         fd.append("files",file.files[0]);
-        Project.ajaxUploadVideoFile('/video/upload/tenxun', fd, null, true).ajaxOK(function (data) {
+        Project.ajaxUploadVideoFile('/video/upload/tenxun', fd).ajaxOK(function (data) {
 			var src = data['data'];
         	$("#zhaopian").attr("src",src);
             $("input[name=previewImg]").val(src);

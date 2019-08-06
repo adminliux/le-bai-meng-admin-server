@@ -151,7 +151,7 @@
         if(!cm.stringIsEmpty(relationId)){
             $("#duixiang").html('${relationId}');
         }
-        Project.ajax("/global/classify/list",null,null,true).ajaxOK(function(data) {
+        Project.ajax("/global/classify/list",null).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到表格
         });
     }
@@ -181,7 +181,7 @@
             alert("请选择轮播对象");
             return false;
         }
-        Project.ajax("/recommend/add",{type:type,relationId:relationId},null,true).ajaxOK(function(data) {
+        Project.ajax("/recommend/add",{type:type,relationId:relationId}).ajaxOK(function(data) {
 
         },true);
     }

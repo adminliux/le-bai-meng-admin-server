@@ -212,7 +212,7 @@
 
     function findActivity() {
         var id = "${id}";
-        Project.ajax("/activity/query/activitybyid", {id: id}, null, true).ajaxOK(function (data) {
+        Project.ajax("/activity/query/activitybyid", {id: id}).ajaxOK(function (data) {
             $("#classifyList2").html(template("f5", data));//作用到表格
             var str = data.data.str;
 
@@ -314,7 +314,7 @@
     function preview(file) {
         var fd = new FormData();
         fd.append("files", file.files[0]);
-        Project.ajaxUploadVideoFile('/video/upload/tenxun', fd, null, true).ajaxOK(function (data) {
+        Project.ajaxUploadVideoFile('/video/upload/tenxun', fd).ajaxOK(function (data) {
             var src = data['data'];
             $("#zhaopian").attr("src", src);
             $("input[name=previewImg]").val(src);

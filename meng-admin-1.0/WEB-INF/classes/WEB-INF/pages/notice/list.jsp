@@ -155,7 +155,7 @@
     findClassify();
     function findClassify() {
         var name="NOTICE_CLASS";
-        Project.ajax("/global/config/find",{name:name},null,true).ajaxOK(function(data) {
+        Project.ajax("/global/config/find",{name:name}).ajaxOK(function(data) {
             $("#classifyList").html(template("f4",data));//作用到表格
             findUser();
         });
@@ -165,7 +165,7 @@
         var fromList=$("#From").formSerialize();
         var status="SHOW";
         var p=$.extend({pageNum: pageNum},{status: status},fromList);
-		Project.ajax("/notice/qcb/admin/page",p,null,true).ajaxOK(function(data) {
+		Project.ajax("/notice/qcb/admin/page",p).ajaxOK(function(data) {
 			$("#goodList").html(template("f1",data));//作用到表格
 			$("#page").html(template("f2",data));//作用到分页
 			$("#total").html(data.data.total);//作用到统计total
@@ -176,21 +176,21 @@
     }
 
     function updateSort(sort,id) {
-        Project.ajax("/notice/qcb/update",{id:id,sort:sort},null,true).ajaxOK(function(data) {
+        Project.ajax("/notice/qcb/update",{id:id,sort:sort}).ajaxOK(function(data) {
             layer.msg('成功!',{icon: 6,time:1000});
             findUser();//刷新
         });
     }
 
     function deleteMsg(id){
-        Project.ajax("/notice/qcb/delete",{id:id},null,true).ajaxOK(function(data) {
+        Project.ajax("/notice/qcb/delete",{id:id}).ajaxOK(function(data) {
             findUser();
         },true);
     }
 
     function updateStatus(id){
         var status="HIDE";
-        Project.ajax("/notice/qcb/update/status",{id:id,status:status},null,true).ajaxOK(function(data) {
+        Project.ajax("/notice/qcb/update/status",{id:id,status:status}).ajaxOK(function(data) {
             findUser();
         },true);
     }
