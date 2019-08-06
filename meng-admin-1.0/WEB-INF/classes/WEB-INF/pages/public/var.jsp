@@ -9,6 +9,6 @@
 --%>
 <script>
     var path = "${path}";
-    var apiHost = "${apiHost}";
+    var apiHost = "${apiHost}"+"/api/json";
     //apiHost = "http://localhost:8080/meng_api_war_exploded";
 </script>
