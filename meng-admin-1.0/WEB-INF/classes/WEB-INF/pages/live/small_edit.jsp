@@ -170,23 +170,12 @@
     if (bigId) {
         $("input[name=courseId]").val(bigId);
     }
+    
 
-    var getSignature = function (callback) {
-        $.ajax({
-            url: apiHost + '/video/get/sign',  //获取客户端上传签名的 URL
-            type: 'POST',
-            dataType: 'json',
-            success: function (result) {//result 是派发签名服务器的回包
-                //假设回包为 { "code": 0, "signature": "xxxx"  }
-                //将签名传入 callback，SDK 则能获取这个上传签名，用于后续的上传视频步骤。
-                callback(result.data);
-            }
-        });
-    };
-
-    function getMysign() {
+    function getMysign(callback) {
         Project.ajax("/video/get/sign", null).ajaxOK(function (data) {
-            mysign = data.msg
+            mysign = data.data;
+            callback(mysign);
         })
     }
 
@@ -265,7 +254,7 @@
         var resultMsg = qcVideo.ugcUploader.start({
             videoFile: videoFile,
             coverFile: imgUrlFile,
-            getSignature: getSignature,
+            getSignature: getMysign,
             allowAudio: 1,
             isTranscode: 1,
             success: function (result) {
