@@ -232,7 +232,7 @@
 //        });
 //    }
 
-findUser();
+/*findUser();
 function findUser(pageNum) {
     var fromList=$("#From").formSerialize();
     var p=$.extend({pageNum: pageNum},{status: status},fromList);
@@ -245,7 +245,7 @@ function findUser(pageNum) {
         //  biggerr();//初始页
         // 面调用图片悬浮放大方法
     });
-}
+}*/
 var editor;
 KindEditor.ready(function(K) {
         editor = K.create('textarea[name="content1"]', {
