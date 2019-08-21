@@ -100,7 +100,7 @@
 			</tr>
 		{{/each}}
 		</script>
-		
+
 	</div>
 
 	<!-- 分页 -->
@@ -125,11 +125,11 @@
 	{{/if}}
 </script>
 
-<script type="text/javascript" src="${path}/resources/lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="${path}/resources/lib/layer/2.1/layer.js"></script> 
-<script type="text/javascript" src="${path}/resources/lib/My97DatePicker/WdatePicker.js"></script> 
-<script type="text/javascript" src="${path}/resources/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
-<script type="text/javascript" src="${path}/resources/static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="${path}/resources/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="${path}/resources/lib/layer/2.1/layer.js"></script>
+<script type="text/javascript" src="${path}/resources/lib/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="${path}/resources/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="${path}/resources/static/h-ui/js/H-ui.js"></script>
 <script type="text/javascript" src="${path}/resources/static/h-ui.admin/js/H-ui.admin.js"></script>
 
 
@@ -150,7 +150,7 @@
         var fromList=$("#From").formSerialize();
         var p=$.extend({pageNum: pageNum},fromList);
 
-		Project.ajax("/activity/query/activity/by/keys",null,{},true).ajaxOK(function(data) {
+		Project.ajax("/activity/query/activity/by/keys",null,{},false).ajaxOK(function(data) {
 			$("#goodList").html(template("f1",data));//作用到表格
 			$("#page").html(template("f2",data));//作用到分页
 			$("#total").html(data.data.total);//作用到统计total

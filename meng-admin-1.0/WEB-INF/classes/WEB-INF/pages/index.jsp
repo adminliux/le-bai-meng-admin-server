@@ -255,8 +255,8 @@
             <dd>
                 <ul>
                     <li class="tips_li"><a
-                            data-href="${path}/base/list?type=${baseEntityPackage}UserStartApp"
-                            data-title="上线统计列表" href="javascript:void(0);">列表</a>
+                            data-href="${path}/base/list?type=${baseEntityPackageSer}UserStartApp"
+                            data-title="上线统计列表" href="javascript:void(0);">APP启动列表</a>
                     </li>
                 </ul>
 
@@ -281,7 +281,7 @@
                 <ul>
                     <li class="tips_li"><a
                             data-href="${path}/base/list?type=${baseEntityPackage}UserPosition"
-                            data-title="用户位置列表" href="javascript:void(0);">列表</a>
+                            data-title="用户位置列表" href="javascript:void(0);">最后一次记录位置</a>
                     </li>
                 </ul>
             </dd>
@@ -322,8 +322,12 @@
             <dd>
                 <ul>
                     <li class="tips_li"><a
-                            data-href="${path}/base/list?type=${baseEntityPackage}UserStartApp"
-                            data-title="获取列表" href="javascript:void(0);">UserGiftSteal</a>
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserGiftSteal"
+                            data-title="用户偷花记录" href="javascript:void(0);">用户偷花记录</a>
+                    </li>
+                    <li class="tips_li"><a
+                            data-href="${path}/base/list?type=${baseEntityPackageSer}ReceivedGiveDetailed"
+                            data-title="花朵获取记录" href="javascript:void(0);">花朵获取记录</a>
                     </li>
                 </ul>
 
@@ -385,11 +389,11 @@
             <dd>
                 <ul>
                     <li class="tips_li"><a
-                            data-href="${path}/base/list?type=com.rpframework.module.common.bottom.entity.UserInvitation"
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserInvitation"
                             data-title="邀请列表" href="javascript:void(0);">邀请列表</a>
                     </li>
                     <li class="tips_li"><a
-                            data-href="${path}/base/list?type=com.rpframework.module.common.bottom.entity.UserInvitationMoneyCumulative"
+                            data-href="${path}/base/list?type=${baseEntityPackage}UserInvitationMoneyCumulative"
                             data-title="金币累计列表" href="javascript:void(0);">金币累计列表</a>
                     </li>
                 </ul>
