@@ -180,7 +180,7 @@
             findClassify();
 
             function findTops() {
-                Project.ajax("/video/top/select/all").ajax(function (tops) {
+                Project.ajax("/video/top/select/all").ajaxOK(function (tops) {
                     tops = tops.data;
 					for (var i = 0; i < tops.length; i++) {
 						var it = tops[i];
