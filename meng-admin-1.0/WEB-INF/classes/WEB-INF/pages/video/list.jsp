@@ -186,6 +186,7 @@
 						var it = tops[i];
 						var $a = $("a[data-top-id=" + it['resId'] + "]");
 						$a.attr("data-res-id", it['resId']);
+                        $a.attr("data-id", it['id']);
 						$a.text("取消置顶");
 					}
                 });
@@ -193,7 +194,7 @@
 
             function topOpr(el) {
                 el = $(el);
-                var resId = el.attr("data-res-id");
+                var resId = el.attr("data-id");
                 if (resId) {
                     Project.ajax("/video/top/delete/by/ids", {ids: resId}).ajax(function () {
                     }, true);
