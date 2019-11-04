@@ -70,6 +70,7 @@
             </from>
             <a class="btn btn-success" onclick="findUser()"><i class="Hui-iconfont">&#xe665;</i> 查询</a>
             <a class="btn btn-success" onclick="addVideo()"><i class="Hui-iconfont">&#xe665;</i>添加新视频</a>
+            <a class="btn btn-success" onclick="videoCheck()"><i class="Hui-iconfont">&#xe665;</i>删除检测视频</a>
         </div>
         <!-- 条件查询end -->
         <div class="cl pd-5 bg-1 bk-gray mt-20"><span class="1">本页共有:<strong id="size"></strong> 条</span> <span
@@ -177,18 +178,28 @@
 
         <%@include file="../base/footer.jsp" %>
         <script type="text/javascript">
+
+            function videoCheck() {
+                alert("需要时间可能会很长，请耐心等待回应");
+                Project.ajax("/video/clean/test/available/and/mark").ajaxOK(function (tops) {
+                    tops = tops.data;
+                    alert("清理视频数量" + tops);
+                });
+            }
+
+
             findClassify();
 
             function findTops() {
                 Project.ajax("/video/top/select/all").ajaxOK(function (tops) {
                     tops = tops.data;
-					for (var i = 0; i < tops.length; i++) {
-						var it = tops[i];
-						var $a = $("a[data-top-id=" + it['resId'] + "]");
-						$a.attr("data-res-id", it['resId']);
+                    for (var i = 0; i < tops.length; i++) {
+                        var it = tops[i];
+                        var $a = $("a[data-top-id=" + it['resId'] + "]");
+                        $a.attr("data-res-id", it['resId']);
                         $a.attr("data-id", it['id']);
-						$a.text("取消置顶");
-					}
+                        $a.text("取消置顶");
+                    }
                 });
             }
 
